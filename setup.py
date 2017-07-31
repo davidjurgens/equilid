@@ -10,15 +10,15 @@ setup(name='Equilid',
       url='https://github.com/davidjurgens/equilid',
       packages=['equilid',],
       install_requires=[
-        'tensorflow', 'numpy'
+        'tensorflow==0.11.0', 'numpy', 'regex'
       ],
       include_package_data=True,
       zip_safe=False,
-      data_files=[('70langs', ['models/70lang/checkpoint',
-                               'models/70lang/equilid',
-                               'models/70lang/equilid.meta',
-                               'models/70lang/vocab.src',
-                               'models/70lang/vocab.tgt', ])],
+      #data_files=[('70langs', ['models/70lang/checkpoint',
+      #                         'models/70lang/equilid',
+      #                         'models/70lang/equilid.meta',
+      #                         'models/70lang/vocab.src',
+      #                         'models/70lang/vocab.tgt', ])],
       keywords='langid language identification indigenous codeswitching code-switching',
       
       classifiers=[

@@ -481,8 +481,13 @@ def repair(tokens, predictions):
             if repaired[i] is not None:
                 continue
 
-            p = pred_anchor_counts[min(i, len(pred_anchor_counts)-1)]
-            r = rep_anchor_counts[i]
+            try:
+                p = pred_anchor_counts[min(i, len(pred_anchor_counts)-1)]
+                r = rep_anchor_counts[i]
+            except IndexError as xcept:
+                print(repr(xcept))
+                print(i, len(pred_anchor_counts)-1, min(i, len(pred_anchor_counts)-1))
+                continue
             
             nearest_lang = 'UNK'
 
@@ -602,6 +607,10 @@ def classify(text):
     
     """
     global classifier
+    
+    # Ensure the text is always treated as unicode
+    text = unicode(text)
+
     if classifier is None:
         # Prediction uses a small batch size
         FLAGS.batch_size = 1
@@ -641,8 +650,13 @@ def classify(text):
     # If there is an EOS symbol in outputs, cut them at that point.
     if EOS_ID in outputs:
         outputs = outputs[:outputs.index(EOS_ID)]
-                    
-    predicted_labels = [tf.compat.as_str(rev_lang_vocab[output]) for output in outputs]
+        
+    predicted_labels = []
+    try:
+        predicted_labels = [tf.compat.as_str(rev_lang_vocab[output]) for output in outputs]
+    except BaseException as e:
+        print(repr(e))
+        
     # Ensure we have predictions for each token
     predictions = repair(text.split(), predicted_labels)
     
@@ -685,7 +699,7 @@ def predict():
 
     for i, source in enumerate(predict_input):
         # Strip off newline
-        source = unicode(source[:-1])
+        source = source[:-1]
 
         predictions = classify(source)
                 
@@ -712,7 +726,7 @@ def set_param(name, val):
     configuring the model if Equilid is being retrained manually via function
     call.
     """
-  setattr(FLAGS, name, val)
+    setattr(FLAGS, name, val)
    
 def main(_):
     with tf.device(FLAGS.gpu):
