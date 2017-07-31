@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='Equilid',
-      version='1.0.0',
+      version='1.0.1',
       description='Socially-Eqiutable Language Identification',
       author='David Jurgens and Yulia Tsvetkov',
       author_email='jurgens@stanford.edu',

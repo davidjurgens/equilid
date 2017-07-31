@@ -259,6 +259,10 @@ def create_model(session, forward_only):
             print("Created model with fresh parameters.")
             session.run(tf.initialize_all_variables())
     else:
+        if not tf.gfile.Exists(FLAGS.model_dir):
+            print("No model file at %s .  Did you download a model yet?" \
+                      % FLAGS.model_dir)
+            sys.exit(1)
         print("loading model from %s" % (FLAGS.model_dir))
         ckpt = tf.train.get_checkpoint_state(FLAGS.model_dir)
         model.saver.restore(session, ckpt.model_checkpoint_path)

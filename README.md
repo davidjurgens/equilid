@@ -33,7 +33,7 @@ Under the hood, Equilid uses a neural seq2seq model.  It depends on three librar
   
 Equilid may work with later versions of tensorflow but this hasn't been tested (yet).
 
-Equilid can be installed via pip ``pip install equilid``.  However, this installs only the software and not the trained model.  The trained model downloaded here [http://cs.stanford.edu/~jurgens/models/70lang.tar.gz] (559MB)
+Equilid can be installed via pip ``pip install equilid``.  However, this installs only the software and not the trained model.  The trained model downloaded here [http://cs.stanford.edu/~jurgens/data/70lang.tar.gz] (559MB unarchived).
 
 
 # Usage
@@ -100,8 +100,9 @@ Equilid's training data was drawn from multiple sources:
 
 Changelog
 ---------
-v1.0.1:
+* v1.0.1:
   * Fixed unicode issue
   * Added model download code (untested)
-v1.0: 
+
+* v1.0: 
   * Initial relea
