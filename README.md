@@ -86,7 +86,7 @@ Equilid's training data was drawn from multiple sources:
  * AAVE data from Blodgett et al. (2016)
  * Twitter 70 dataset
 * Distinguishing Similar Languages shared task 1 and 2 data
-* United Nations Declaration of Human Rights
+* Universal Declaration of Human Rights
 * Watchtower magazines
 * Slang websites
   * Urban Dictionary
