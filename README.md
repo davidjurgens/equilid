@@ -35,6 +35,8 @@ Equilid may work with later versions of tensorflow but this hasn't been tested (
 
 Equilid can be installed via pip ``pip install equilid``.  However, this installs only the software and not the trained model.  The trained model downloaded here [http://cs.stanford.edu/~jurgens/data/70lang.tar.gz] (559MB unarchived).
 
+To install a trained model, create a directory ``model`` in the base ``Equilid`` directory and unpack the model's archive file into it.
+
 
 # Usage
 -----
