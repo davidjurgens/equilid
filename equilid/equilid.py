@@ -535,20 +535,27 @@ def repair(tokens, predictions):
 
 
 cjk_ranges = [
-  {"from": ord(u"\u3300"), "to": ord(u"\u33ff")},
-  {"from": ord(u"\ufe30"), "to": ord(u"\ufe4f")},
-  {"from": ord(u"\uf900"), "to": ord(u"\ufaff")},
-  {"from": ord(u"\U0002F800"), "to": ord(u"\U0002fa1f")},
-  {"from": ord(u"\u30a0"), "to": ord(u"\u30ff")},        
-  {"from": ord(u"\u2e80"), "to": ord(u"\u2eff")},        
-  {"from": ord(u"\u4e00"), "to": ord(u"\u9fff")},
-  {"from": ord(u"\u3400"), "to": ord(u"\u4dbf")},
-  {"from": ord(u"\U00020000"), "to": ord(u"\U0002a6df")},
-  {"from": ord(u"\U0002a700"), "to": ord(u"\U0002b73f")},
-  {"from": ord(u"\U0002b740"), "to": ord(u"\U0002b81f")},
-  {"from": ord(u"\U0002b820"), "to": ord(u"\U0002ceaf")}
+    {"from": ord(u"\u3300"), "to": ord(u"\u33ff")},
+    {"from": ord(u"\ufe30"), "to": ord(u"\ufe4f")},
+    {"from": ord(u"\uf900"), "to": ord(u"\ufaff")},
+    {"from": ord(u"\u30a0"), "to": ord(u"\u30ff")},        
+    {"from": ord(u"\u2e80"), "to": ord(u"\u2eff")},        
+    {"from": ord(u"\u4e00"), "to": ord(u"\u9fff")},
+    {"from": ord(u"\u3400"), "to": ord(u"\u4dbf")},
 ]
 
+try:
+    cjk_ranges.extend([    
+        {"from": ord(u"\U00020000"), "to": ord(u"\U0002a6df")},
+        {"from": ord(u"\U0002a700"), "to": ord(u"\U0002b73f")},
+        {"from": ord(u"\U0002b740"), "to": ord(u"\U0002b81f")},
+        {"from": ord(u"\U0002b820"), "to": ord(u"\U0002ceaf")},
+        {"from": ord(u"\u0002f800"), "to": ord(u"\u0002fa1f")},
+        ])
+except TypeError as e:
+    print('Unable to load extended unicode ranges for CJK character set, ' +
+          'some CJK language identification results may be unreliable.')
+    
 hangul_ranges = [
   {"from": ord(u"\uAC00"), "to": ord(u"\uD7AF")},
 ]
