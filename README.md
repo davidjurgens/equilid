@@ -107,4 +107,4 @@ Changelog
   * Added model download code (untested)
 
 * v1.0: 
-  * Initial relea
+  * Initial release
