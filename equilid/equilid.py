@@ -716,8 +716,12 @@ def predict():
                 
                 
         if outf is not None:
-            outf.write(('%d\t%s\t%s\t%s\n' % (i, label, source_text, predicted))\
-                           .encode('utf-8'))
+            text_list = source.split()
+            for j in range(len(predictions)):
+                predicted = predictions[j]
+                source_text = text_list[j]
+                outf.write(('%d\t%s\t%s\n' % (i, source_text, predicted))\
+                               .encode('utf-8'))
             # Since the model can take a while to predict, flush often
             # so the end-user can actually see progress when writing to a file
             if i % 10 == 0:
