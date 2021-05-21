@@ -10,7 +10,7 @@ setup(name='Equilid',
       url='https://github.com/davidjurgens/equilid',
       packages=['equilid',],
       install_requires=[
-        'tensorflow==0.11.0', 'numpy', 'regex'
+        'tensorflow==2.5.0', 'numpy', 'regex'
       ],
       include_package_data=True,
       zip_safe=False,
